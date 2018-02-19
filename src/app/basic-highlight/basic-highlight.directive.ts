@@ -1,5 +1,5 @@
-import { Directive } from "@angular/core";
-import { ElementRef } from "@angular/core/src/linker/element_ref";
+import { Directive , ElementRef} from "@angular/core";
+// import { ElementRef } from "@angular/core/src/linker/element_ref"; // Auto import to this link doesnt work ?
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 
 
