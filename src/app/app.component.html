@@ -15,7 +15,28 @@
             {{ odd}}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
+        <!-- <div *ngIf="!onlyOdd">
+            <li
+            class="list-group-item"
+            [ngClass]="{odd: even % 2 !== 0}"
+            *ngFor = "let even of evenNumbers" >
+            {{ even}}
+          </li>
+        </div>
+        <!-- shows above display in  Augluar syntax -->
+        <!-- <ng-template [ngIf]="!onlyOdd">
+          <div>
+            <li
+            class="list-group-item"
+            [ngClass]="{odd: even % 2 !== 0}"
+            *ngFor = "let even of evenNumbers" >
+            {{ even}}
+          </li>
+          </div>
+        </ng-template> -->  
+
+        <!-- applied custom structural directive -->
+       <div *appUnless="onlyOdd">
             <li
             class="list-group-item"
             [ngClass]="{odd: even % 2 !== 0}"
@@ -25,8 +46,15 @@
         </div>
       </ul>
       <p appBasicHighlight> Style with basic directive </p>
-      <p appBetterHighlight> Style with better directive </p>
-
+      <!-- <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'"> Style with better directive </p> -->
+      <!-- style with alias that can remove [] , make sure it is not a argument. -->
+      <p [appBetterHighlight] ="'red'" defaultColor="yellow" > Style with better directive </p>
+      <div [ngSwitch]="value">
+          <p *ngSwitchCase="5"> Value is 5</p>
+          <p *ngSwitchCase="10"> Value is 10</p>
+          <p *ngSwitchCase="100"> Value is 100</p>
+          <p *ngSwitchDefault> Value is Default</p>
+        </div>
     </div>
   </div>
 </div>
